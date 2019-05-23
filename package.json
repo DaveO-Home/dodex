@@ -1,0 +1,11 @@
+{
+  "name": "dodex",
+  "version": "1.0.0",
+  "description": "A rolodex widget for menuing and data/links access",
+  "private": true,
+  "main": "dist/dodex.min",
+  "keywords": [
+    "rolodex"
+  ],
+  "license": "MIT"
+}
