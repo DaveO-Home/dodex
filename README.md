@@ -1,4 +1,4 @@
-# <svg height="23" width="27" style="font-family: 'Open Sans', sans-serif;"><text x="5" y="23" fill="#059">o</text><text x="0" y="20" fill="#059">d</text></svg>doDex, a multi-purpose rolodex widget for menuing and other information
+# doDex, a multi-purpose rolodex widget for menuing and other information
 
 ## Getting Started
 
@@ -7,12 +7,12 @@ The widget can be attached to any HTML page.
 1. Add to your html document using defaults.
 
 ```html
-    <link rel="stylesheet" href="<location>/dodex.css">
+    <link rel="stylesheet" href="<location>/dodex.min.css">
     <body>
       <div class="dodex--open">
-        <img src="<location>/dodex/dodex_g.ico">
+        <img src="<location>/dodex/images/dodex_g.ico">
       </div>
-      <script src="<location>/dodex.js" type="text/javascript"></script>
+      <script src="<location>/dodex.min.js" type="text/javascript"></script>
     </body>
  ```
 
@@ -167,6 +167,11 @@ Here's an example of dodex loaded in a `bootstrap` environment
 
 See getting started.
 
+## Test
+
+1. Start a server where node_modules directory is visible.
+1. Load `node_modules/dodex/test/index.html`
+
 ## Built With
 
 * [SASS](https://sass-lang.com/) - css build
@@ -179,4 +184,4 @@ See getting started.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
