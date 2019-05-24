@@ -51,7 +51,7 @@ The widget can be attached to any HTML page.
       Using commonjs syntax
 
 ```javascript
-       var dodex = require("dodex).default;
+       var dodex = require("dodex").default;
 ```
 
       Changing default behavior in an application module
