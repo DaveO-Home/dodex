@@ -7,12 +7,15 @@ The widget can be attached to any HTML page.
 1. Add to your html document using defaults.
 
 ```html
-    <link rel="stylesheet" href="<location>/dodex.min.css">
+    <link rel="stylesheet" href="(location)/dodex.min.css">
     <body>
       <div class="dodex--open">
-        <img src="<location>/dodex/images/dodex_g.ico">
+        <img src="(location)/dodex/images/dodex_g.ico">
       </div>
-      <script src="<location>/dodex.min.js" type="text/javascript"></script>
+      <script src="(location)/dodex.min.js" type="text/javascript"></script>
+      <script>
+            doDex.init({});
+      </script>
     </body>
  ```
 
@@ -20,23 +23,24 @@ The widget can be attached to any HTML page.
 
 ```javascript
     <script>
-        var dodex = window.doDex; // global variable
+         var dodex = window.doDex; // global variable
 
-        /* Card content can be customized - returns an object
-           This content is used for cards A-Z and static card 27 */
-        dodex.setContentFile("<location>/content.js");
+         /* Card content can be customized - returns an object
+           This content is used for cards A-Z and static card 27
+         */
+         dodex.setContentFile("(location)/content.js");
 
-        // Change size and or position - returns a Promise
-        dodex.init({width:375; height: 200; top: "100px"; left: "50%"})
+         // Change size and or position - returns a Promise
+         dodex.init({width:375; height: 200; top: "100px"; left: "50%"})
 
-        // Add up to 26 additional cards. Card # must start at 28.
-        .then(function () {
+         // Add up to 26 additional cards. Card # must start at 28.
+         .then(function () {
             for (var i = 0; i < 3; i++) {
               dodex.addCard({/*see custom content section*/});
             }
             /* Auto display of widget */
             dodex.openDodex();
-        });
+         });
     </script>
 ```
 
@@ -155,7 +159,7 @@ An Npm based javascript project.
 
 ### Installing
 
-1. `npm install dodex`
+1. `npm install dodex --save`
 2. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
 __Note;__ Content can also be loaded from a `JSON` file.
 

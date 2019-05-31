@@ -1,0 +1,2 @@
+dist/*.html linguist-vendored
+test/*.html linguist-vendored
