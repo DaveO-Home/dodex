@@ -1,6 +1,6 @@
 {
   "name": "dodex",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A rolodex widget for menuing and data/links access",
   "main": "dist/dodex.min",
   "keywords": [

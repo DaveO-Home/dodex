@@ -33,7 +33,7 @@ The widget can be attached to any HTML page.
          // Change size and or position - returns a Promise
          dodex.init({width:375; height: 200; top: "100px"; left: "50%"})
 
-         // Add up to 26 additional cards. Card # must start at 28.
+         // Add up to 24 additional cards. Card # must start at 28.
          .then(function () {
             for (var i = 0; i < 3; i++) {
               dodex.addCard({/*see custom content section*/});
@@ -46,19 +46,19 @@ The widget can be attached to any HTML page.
 
 3. Loading as a module.
 
-      Using es6 syntax
+* Using es6 syntax
 
 ```javascript
        import dodex from "dodex";
 ```
 
-      Using commonjs syntax
+* Using commonjs syntax
 
 ```javascript
        var dodex = require("dodex").default;
 ```
 
-      Changing default behavior in an application module
+* Changing default behavior in an application module
 
 ```javascript
 
@@ -73,7 +73,7 @@ The widget can be attached to any HTML page.
           top: "100px"
        })
        .then(function () {
-           /* Add up to 26 additional cards. */
+           /* Add up to 24 additional cards. */
            for(var i = 0; i < 1; i++) {
                dodex.addCard(content);
            }
@@ -97,7 +97,7 @@ The widget can be attached to any HTML page.
 
 4. Adding content to the dodex cards(content can be from a javascript or JSON file).
 
-       Use the following as a javascript template. You only need to include cards with content. See node_modules/dodex/data for examples.
+      Use the following as a javascript template. You only need to include cards with content. See node_modules/dodex/data for examples.
 
 ```javascript
         dodexContent = {
@@ -155,15 +155,15 @@ __Note;__ Firefox works best by only clicking the tabs.
 
 ### Prerequisites
 
-An Npm based javascript project.
+None.
 
 ### Installing
 
-1. `npm install dodex --save`
+1. `npm install dodex --save` or download from <https://github.com/DaveO-Home/dodex>.
 2. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
 __Note;__ Content can also be loaded from a `JSON` file.
 
-Here's an example of dodex loaded in a `bootstrap` environment
+Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub).
 
 ![dodex](./images/dodex.png?raw=true)
 
