@@ -13,17 +13,21 @@ The widget can be attached to any HTML page.
         <img src="(location)/dodex/images/dodex_g.ico">
       </div>
       <script src="(location)/dodex.min.js" type="text/javascript"></script>
+      <script src="(location)/dodex-input.min.js" type="text/javascript"></script>
       <script>
-            doDex.init({});
+            doDex.init({
+               input: doDexInput
+            });
       </script>
     </body>
  ```
 
 2. Modifying defaults by adding inline javascript to page.
 
-```javascript
+```html
     <script>
-         var dodex = window.doDex; // global variable
+         var dodex = window.doDex;      // global variable
+         var input = window.doDexInput; // global variable
 
          /* Card content can be customized - returns an object
            This content is used for cards A-Z and static card 27
@@ -31,7 +35,15 @@ The widget can be attached to any HTML page.
          dodex.setContentFile("(location)/content.js");
 
          // Change size and or position - returns a Promise
-         dodex.init({width:375; height: 200; top: "100px"; left: "50%"})
+         dodex.init({
+            width:375,
+            height: 200,
+            top: "100px",
+            left: "50%",
+            input: input,        // required if using frontend content load
+            private: "partial",  // frontend load of private content, "none", "full", "partial"(only cards 28-52) - default none
+            replace: true        // append to or replace default content - default false(append only)
+            })
 
          // Add up to 24 additional cards. Card # must start at 28.
          .then(function () {
@@ -63,6 +75,7 @@ The widget can be attached to any HTML page.
 ```javascript
 
        import dodex from "dodex";
+       import input from "dodex-input"
        /* This content is used for cards A-Z and static card 27 */
        dodex.setContentFile("<location>/content.js");
 
@@ -70,7 +83,10 @@ The widget can be attached to any HTML page.
           width: 375,
           height: 200,
           left: "50%",
-          top: "100px"
+          top: "100px",
+          input: input,        // required if using frontend content load
+          private: "partial",  // frontend load of private content, "none", "full", "partial"(only cards 28-52) - default none
+          replace: true        // append to or replace default content - default false(append only)
        })
        .then(function () {
            /* Add up to 24 additional cards. */
@@ -100,6 +116,9 @@ The widget can be attached to any HTML page.
       Use the following as a javascript template. You only need to include cards with content. See node_modules/dodex/data for examples.
 
 ```javascript
+         /*
+            The window scoped "dodexContent" is required to load content at initialization. This allows content without using a module.(dodex.setContentFile). The additional card content as well as content loaded from the Front-End Input module, use plain objects.
+        */
         dodexContent = {
           cards: {
              card1: {
@@ -150,6 +169,8 @@ The widget can be attached to any HTML page.
 1. Click a tab to page to desired card.
 1. Click the face or back of a card to flip current cards.
 1. Enter a dial with mouse and with mouse down slowly move up or down to flip cards.
+1. Double-Click on bottom static card or dials to popup the front-end load file form.
+1. Double-Click again to close or click close button.
 
 __Note;__ Firefox works best by only clicking the tabs.
 
@@ -160,7 +181,8 @@ None.
 ### Installing
 
 1. `npm install dodex --save` or download from <https://github.com/DaveO-Home/dodex>.
-2. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
+1. `npm install dodex-input --save` or download from <https://github.com/DaveO-Home/dodex-input>.
+1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
 __Note;__ Content can also be loaded from a `JSON` file.
 
 Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub).
@@ -173,7 +195,7 @@ See getting started.
 
 ## Test
 
-1. Start a server where node_modules directory is visible.
+1. Open in any browser or start a server where node_modules directory is visible.
 1. Load `node_modules/dodex/test/index.html`
 
 ## Built With
