@@ -176,7 +176,7 @@ __Note;__ Firefox works best by only clicking the tabs.
 
 ### Prerequisites
 
-If using dodex-input, browser must support the "indexDB" storage feature. To clear content from indexDB, execute from your browser's dev-tools console; `indexDB.deleteDatabase("dodex")`.
+If using dodex-input, browser must support the "indexedDB" storage feature. To clear content from indexedDB, execute from your browser's dev-tools console; `indexedDB.deleteDatabase("dodex")`.
 
 ### Installing
 
