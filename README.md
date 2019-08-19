@@ -14,9 +14,11 @@ The widget can be attached to any HTML page.
       </div>
       <script src="(location)/dodex.min.js" type="text/javascript"></script>
       <script src="(location)/dodex-input.min.js" type="text/javascript"></script>
+      <script src="(location)/dodex-mess.min.js" type="text/javascript"></script>
       <script>
             doDex.init({
-               input: doDexInput
+               input: doDexInput, // "private: none" is default so no popup input form
+               mess: doDexMess    // defaults to "server: localhost:3087" for websockets
             });
       </script>
     </body>
@@ -28,6 +30,7 @@ The widget can be attached to any HTML page.
     <script>
          var dodex = window.doDex;      // global variable
          var input = window.doDexInput; // global variable
+         var mess = window.doDexMess; // global variable
 
          /* Card content can be customized - returns an object
            This content is used for cards A-Z and static card 27
@@ -42,7 +45,9 @@ The widget can be attached to any HTML page.
             left: "50%",
             input: input,        // required if using frontend content load
             private: "partial",  // frontend load of private content, "none", "full", "partial"(only cards 28-52) - default none
-            replace: true        // append to or replace default content - default false(append only)
+            replace: true,       // append to or replace default content - default false(append only)
+            mess: mess,          // required for dodex messaging client
+            server: "localhost:3087" // see node_modules/dodex-mess/server for details on demo server
             })
 
          // Add up to 24 additional cards. Card # must start at 28.
@@ -76,6 +81,7 @@ The widget can be attached to any HTML page.
 
        import dodex from "dodex";
        import input from "dodex-input"
+       import mess from "dodex-mess"
        /* This content is used for cards A-Z and static card 27 */
        dodex.setContentFile("<location>/content.js");
 
@@ -86,7 +92,9 @@ The widget can be attached to any HTML page.
           top: "100px",
           input: input,        // required if using frontend content load
           private: "partial",  // frontend load of private content, "none", "full", "partial"(only cards 28-52) - default none
-          replace: true        // append to or replace default content - default false(append only)
+          replace: true,       // append to or replace default content - default false(append only)
+          mess: mess,          // requireed if using messaging client.
+          server: "localhost:3087"  // default demo server - see node_modules/dodex-mess/server
        })
        .then(function () {
            /* Add up to 24 additional cards. */
@@ -115,10 +123,10 @@ The widget can be attached to any HTML page.
 
       Use the following as a javascript template. You only need to include cards with content. See node_modules/dodex/data for examples.
 
+   __Note;__ The window scoped "dodexContent" is required to load content at initialization. This allows content without using a module.(dodex.setContentFile). The additional card content as well as content loaded from the front-end Input module, use plain objects.
+
 ```javascript
-         /*
-            The window scoped "dodexContent" is required to load content at initialization. This allows content without using a module.(dodex.setContentFile). The additional card content as well as content loaded from the Front-End Input module, use plain objects.
-        */
+
         dodexContent = {
           cards: {
              card1: {
@@ -182,10 +190,11 @@ If using dodex-input, browser must support the "indexedDB" storage feature. To c
 
 1. `npm install dodex --save` or download from <https://github.com/DaveO-Home/dodex>.
 1. `npm install dodex-input --save` or download from <https://github.com/DaveO-Home/dodex-input>.
+1. `npm install dodex-mess --save` or download from <https://github.com/DaveO-Home/dodex-mess>.
 1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
 __Note;__ Content can also be loaded from a `JSON` file.
 
-Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub).
+Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub <https://github.com/DaveO-Home/dodex>).
 
 ![dodex](./images/dodex.png?raw=true)
 

@@ -1,8 +1,12 @@
 {
   "name": "dodex",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "A rolodex widget for menuing and data/links access",
   "main": "dist/dodex.min",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DaveO-Home/dodex.git"
+  },
   "keywords": [
     "rolodex"
   ],
