@@ -191,7 +191,9 @@ If using dodex-input, browser must support the "indexedDB" storage feature. To c
 1. `npm install dodex --save` or download from <https://github.com/DaveO-Home/dodex>.
 1. `npm install dodex-input --save` or download from <https://github.com/DaveO-Home/dodex-input>.
 1. `npm install dodex-mess --save` or download from <https://github.com/DaveO-Home/dodex-mess>.
-1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
+1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.
+1. You can also use the Java/JavaRx asynchronous server ```dodex-vertx``` to serve dodex.
+
 __Note;__ Content can also be loaded from a `JSON` file.
 
 Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub <https://github.com/DaveO-Home/dodex>).
