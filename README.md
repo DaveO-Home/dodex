@@ -8,10 +8,26 @@ The widget can be attached to any HTML page.
 
 ```html
     <link rel="stylesheet" href="(location)/dodex.min.css">
+
+    <!-- JSONEditor is optional - JSONEditor css for editing private content in JSON files -->
+    <link href="(location)/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <style>
+      /* Size and location of JSONEditor window */
+      .editor {
+         width: 80%; height: 400px; position: fixed; bottom: 0; left: 0;
+      }
+    </style>
+
     <body>
       <div class="dodex--open">
         <img src="(location)/dodex/images/dodex_g.ico">
       </div>
+
+      <!-- JSONEditor is Optional - container for the frontend JSON editor - will be positioned based on .editor class -->
+      <div id="jsoneditor" class="editor"></div>
+      <!-- Note; dodex-input will handle the implementation - see the input popup -->
+      <script src="(location)/jsoneditor/dist/jsoneditor.min.js"></script>
+
       <script src="(location)/dodex.min.js" type="text/javascript"></script>
       <script src="(location)/dodex-input.min.js" type="text/javascript"></script>
       <script src="(location)/dodex-mess.min.js" type="text/javascript"></script>
@@ -82,6 +98,9 @@ The widget can be attached to any HTML page.
        import dodex from "dodex";
        import input from "dodex-input"
        import mess from "dodex-mess"
+       import jsonEditor from "jsoneditor"
+       window.JSONEditor = jsonEditor;
+
        /* This content is used for cards A-Z and static card 27 */
        dodex.setContentFile("<location>/content.js");
 
@@ -184,17 +203,19 @@ __Note;__ Firefox works best by only clicking the tabs.
 
 ### Prerequisites
 
-If using dodex-input, browser must support the "indexedDB" storage feature. To clear content from indexedDB, execute from your browser's dev-tools console; `indexedDB.deleteDatabase("dodex")`.
+If using dodex-input, browser must support the "indexedDB" storage feature. To clear content from indexedDB, execute from your browser's dev-tools console; `indexedDB.deleteDatabase("dodex")`. Or use the dodex-input popup to remove personal content stored in "indexedDB".
 
 ### Installing
 
 1. `npm install dodex --save` or download from <https://github.com/DaveO-Home/dodex>.
 1. `npm install dodex-input --save` or download from <https://github.com/DaveO-Home/dodex-input>.
 1. `npm install dodex-mess --save` or download from <https://github.com/DaveO-Home/dodex-mess>.
+1. `npm install jsoneditor --save` or download from <https://github.com/josdejong/jsoneditor>(this is optional).
 1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.
-1. You can also use the Java/JavaRx asynchronous server ```dodex-vertx``` to serve dodex.
+1. You can use the Java/JavaRx asynchronous server ```dodex-vertx``` to serve dodex.
+1. Also, dodex-mess has a node/koa javascript server ```node_modules/dodex-mess/server``` to serve dodex.
 
-__Note;__ Content can also be loaded from a `JSON` file.
+__Note;__ Content can also be loaded from a `JSON` file. See dodex-input README for details on the frontend JSON editor.
 
 Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub <https://github.com/DaveO-Home/dodex>).
 
