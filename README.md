@@ -212,7 +212,7 @@ If using dodex-input, browser must support the "indexedDB" storage feature. To c
 1. `npm install dodex-mess --save` or download from <https://github.com/DaveO-Home/dodex-mess>.
 1. `npm install jsoneditor --save` or download from <https://github.com/josdejong/jsoneditor>(this is optional).
 1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.
-1. You can use the Java/JavaRx asynchronous server ```dodex-vertx``` to serve dodex.
+1. You can use the Java/rxJava asynchronous server ```dodex-vertx``` to serve dodex.
 1. Also, dodex-mess has a node/koa javascript server ```node_modules/dodex-mess/server``` to serve dodex.
 
 __Note;__ Content can also be loaded from a `JSON` file. See dodex-input README for details on the frontend JSON editor.
@@ -234,7 +234,7 @@ See getting started.
 
 * [SASS](https://sass-lang.com/) - css build
 * [Javascript](https://www.javascript.com//) - language
-* [Parcel](https://parceljs.org/) - bundler
+* [Rollup](https://rollupjs.org/) - bundler
 
 ## Authors
 
